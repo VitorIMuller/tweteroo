@@ -18,29 +18,16 @@ app.get('/tweets', (req, res)=>{
 })
 
 app.post('/tweets', (req, res)=> {
-    if(req.body.username.length === 0 || req.body.avatar.length === 0){
-        res.sendStatus(400)
-
-    }else{
-
-        const tweet = req.body;
-        tweets.push(tweet);
-    
-        res.sendStatus(200)
-    }
+    res.send('Ok')
+    const tweet = req.body;
+    tweets.push(tweet);
 
 })
 
 app.post('/sign-up',(req, res) =>{
-    if(req.body.username.length === 0 || req.body.avatar.length === 0){
-        res.sendStatus(400)
-
-    }else{
-
-        const user = req.body;
-        userData.push(user)
-        res.status(400)
-    }
+    res.send('Ok')
+    const user = req.body;
+    userData.push(user)
 })
 
 
