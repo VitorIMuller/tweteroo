@@ -9,6 +9,7 @@ let tweets = [];
 let userData = [];
 
 app.get('/tweets', (req, res)=>{
+    
     if(tweets.length <=10){
         res.send(tweets)
     }else{
@@ -17,16 +18,29 @@ app.get('/tweets', (req, res)=>{
 })
 
 app.post('/tweets', (req, res)=> {
-    const tweet = req.body;
-    tweets.push(tweet);
+    if(req.body.username.length === 0 || req.body.avatar.length === 0){
+        res.sendStatus(400)
 
-    res.send("OK!")
+    }else{
+
+        const tweet = req.body;
+        tweets.push(tweet);
+    
+        res.sendStatus(200)
+    }
+
 })
 
 app.post('/sign-up',(req, res) =>{
-    const user = req.body;
-    userData.push(user)
-    res.send("OK!")
+    if(req.body.username.length === 0 || req.body.avatar.length === 0){
+        res.sendStatus(400)
+
+    }else{
+
+        const user = req.body;
+        userData.push(user)
+        res.status(400)
+    }
 })
 
 
